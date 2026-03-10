@@ -66,4 +66,16 @@ stage("deployment of the app"){
             steps{
                 withSonarQubeEnv('Sonarqubeserver') {
                     sh 'mvn clean compile org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar'
+
                 }
+-------------------------------------------------------------------------------------------
+
+stage('Download SonarQube Report') {
+            steps {
+                sh '''
+                    mkdir -p sonar-report
+                    curl -u admin:admin "http://3.111.170.225:9000/api/issues/search?componentKeys=admin" -o sonar-report/report.json
+                    '''
+                  }
+       }
+--------------------------------------------------------------------------------------------
