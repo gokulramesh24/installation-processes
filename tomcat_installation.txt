@@ -1,0 +1,39 @@
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.115/bin/apache-tomcat-9.0.115.zip
+
+apt install unzip -y
+
+unzip apache-tomcat-9.0.115.zip
+
+cd apache-tomcat-9.0.115
+ 
+cd conf
+
+ls
+
+vi server.xml
+
+#inside server.xml file change port 8080 to 9090
+
+cd ..
+
+cd bin
+
+chmod +x *.sh
+
+./startup.sh
+
+publicip:9090
+
+#the code won't run so,
+
+#visudo : this file gives the user the root (sudo) permission to perform a tasks…we will give jenkins the sudo permissions to perform the tasks
+
+visudo
+
+jenkins ALL=(ALL:ALL) NOPASSWD: ALL
+
+paste this line after root ALL=(ALL:ALL) ALL
+
+service jenkins restart
+
+publicip:9090/addressbook

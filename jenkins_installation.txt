@@ -1,0 +1,9 @@
+sudo su
+
+wget https://raw.githubusercontent.com/akshu20791/Deployment-script/refs/heads/main/jenkins.sh
+
+ls
+
+chmod 700 jenkins.sh
+
+./jenkins.sh
